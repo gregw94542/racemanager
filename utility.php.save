@@ -1,0 +1,252 @@
+<?php
+function debug($str)
+{
+	print "<br>=$str=<br>";
+}
+
+
+class VARS
+{
+	
+	private $user_id;
+	private $session_id;
+	private $race_id;
+
+	private $invalid;
+
+	function __construct()
+	{
+		$this->invalid="deadbeefstinkysocks";
+		$this->session_id = $this->invalid;
+
+		if ($_POST[eid] != NULL) {
+			$this->user_id = $_POST[eid];
+		} else if ($_GET[eid] != NULL) {
+			$this->user_id = $_GET[eid];
+		} else {
+			$this->user_id = $invalid;
+		}
+
+		if ($_POST[RACE_ID] != NULL) {
+			$this->race_id = $_POST[RACE_ID];
+		} else if ($_GET[RACE_ID] != NULL) {
+			$this->race_id = $_GET[RACE_ID];
+		} else {
+			$this->race_id = 0;
+		}
+
+	#$keys = array_keys($_POST);
+	#foreach ($keys as $var) {
+	#	echo "$var = $_POST[$var]<br>";
+	#}
+
+	}
+
+	function insert_raceid()
+	{
+		echo "RACE_ID=$this->race_id";
+	}
+
+	function get_race_id()
+	{
+		return $this->race_id;
+	}
+
+	function get_raceid()
+	{
+		return  $this->get_race_id();
+	}
+
+	function add_userid_field()
+	{
+	}	
+
+	function insert_css_file()
+	{
+		echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"networkistics.css\"/>";
+		#$b = $this->get_browser();
+		#echo "I got: $b<br>";
+	}
+
+
+
+}
+
+
+class DB
+{
+
+	private $host;
+	private $user;
+	private $pass;
+	private $database;
+	private $sqlstatement;
+	private $conn;
+	private $row;
+	private $result;
+	
+	function __construct()
+	{
+		//print "<br>in DB constructor<br>";
+		$this->host="localhost";
+		$this->user="networki_ncsa";
+		$this->pass="06ncsa17";
+		$this->database="networki_ncsa";
+		$this->sqlstatement="";
+		
+		$this->conn = mysql_connect($this->host, $this->user, $this->pass) or die ('Error connecting to mysql');
+		mysql_select_db($this->database);
+	}
+
+	
+	function __destruct()
+	{
+		//print "<br>in DB deconstructor<br>";
+		mysql_close($this->conn);
+	}
+	
+	public function getsql()
+	{
+		return  $this->sqlstatement;
+	}
+	
+	public function runsql($msg, $debug)
+	{
+		$this->sqlstatement = $msg;
+		if ($debug){
+			print "<br>$this->sqlstatement<br>";
+		}
+		$this->result = mysql_query($this->sqlstatement );
+	}
+	
+
+	public function getrow()
+	{
+		$this->row = mysql_fetch_array($this->result,MYSQL_ASSOC);
+		return $this->row;
+	}
+
+	public function getcurrentyear()
+	{
+		$this->sqlstatement = "select year(now()) as year from dual";
+		$this->result = mysql_query($this->sqlstatement );
+		$this->row = mysql_fetch_array($this->result,MYSQL_ASSOC);
+		return $this->row[year];
+	}
+
+	public function getcurrentmonth()
+	{
+		$this->sqlstatement = "select month(now()) as month from dual";
+		$this->result = mysql_query($this->sqlstatement );
+		$this->row = mysql_fetch_array($this->result,MYSQL_ASSOC);
+		return $this->row[month];
+	}
+
+	public function getcurrentdate()
+	{
+		$this->sqlstatement = "select day(now()) as d from dual";
+		$this->result = mysql_query($this->sqlstatement );
+		$this->row = mysql_fetch_array($this->result,MYSQL_ASSOC);
+		return $this->row[d];
+	}
+		
+	public function getnow()
+	{
+		$this->sqlstatement = "select now() as d from dual";
+		$this->result = mysql_query($this->sqlstatement );
+		$this->row = mysql_fetch_array($this->result,MYSQL_ASSOC);
+		return $this->row[d];
+	
+	}
+
+	public function get_racename($raceid)
+	{
+		$this->sqlstatement = "select race_name from
+			races where race_id = $raceid";
+		$this->result = mysql_query($this->sqlstatement );
+		$this->row = mysql_fetch_array($this->result,MYSQL_ASSOC);
+		return $this->row[race_name];
+	}
+
+	public function display_division($id, $rid) {
+		$this->sqlstatement = "select skater_first, skater_last, 
+			skater_id 
+           		from skaters 
+	    		where skater_id in
+				(select skater_id 
+					from division_skaters
+					where division_id = '$id')
+	   		order by skater_last, skater_first";
+
+		$this->result = mysql_query($this->sqlstatement);
+		echo "<table>";
+		while ( $row = mysql_fetch_array($result,MYSQL_ASSOC)){
+	  		$national = get_age_group($row[skater_id], $rid);
+	   		echo "<tr><td>";
+	   		echo "<td>$row[skater_first] $row[skater_last]</td>";
+	   		echo "<td>&nbsp;&nbsp</td>";
+	   		echo "<td>$national</td></tr>";
+		}
+		echo "</table>";
+
+	}
+
+function create_month_select($month)
+{
+$months = array(0, "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+	"Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+
+	for ($x = 1; $x < 13; $x++) {
+		if ($x == $month) {
+			echo "<option value=\"$x\" selected>$months[$x]</option>";
+		} else {
+			echo "<option value=\"$x\" >$months[$x]</option>";
+		}
+	}
+}
+function create_date_select($d)
+{
+	for ($x = 1 ; $x < 32; $x++) {
+		if ($x == $d) {
+			print ("<option value=\"$x\" selected>$x</option>");
+		} else {
+			print ("<option value=\"$x\">$x</option>");
+		}
+	}
+}
+
+function create_year_select($yr)
+{
+	for ($x = 2008 ; $x < 2020; $x++) {
+		if ($x == $yr) {
+			print ("<option value=\"$x\" selected>$x</option>");
+		} else {
+			print ("<option value=\"$x\">$x</option>");
+		}
+	}
+}
+
+
+function write_head_tag($vars){
+	echo "<head>";
+	echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">";
+	echo "<script language=\"JavaScript\">";
+	echo "var time = null
+	 ";
+	echo "function move() { ";
+	$session = $vars->get_sessionid();
+	echo "window.location = 'Timeout.php?session_id=$session'";
+	echo "}";
+	echo "</script>";
+	echo "</head>";
+}
+
+function write_body_tag($vars, $database) {
+	$valid_session = $database->valid_session($vars->get_userid(), 
+		$vars->get_sessionid());
+	if ($valid_session == 0) {
+		echo "<body  onload=\"timer=setTimeout('move()',100)\">";
+	} else {
+		echo "<body>";
+	}
+}

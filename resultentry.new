@@ -1,0 +1,149 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" href="ncsa.css" type="text/css">
+	<link href="design.css" rel="stylesheet" type="text/css" />
+	<script src="tabs.js" type="text/javascript"></script>
+	<? include ("ncsadb.php")?>
+	<title>NCSA Race Result Data Entry</title>
+</head>
+<body>
+<h1> Add/Change Heat Results</h1>
+Heat Number
+
+<?php
+
+function get_heat_count($id)
+{
+
+$heat_ids = array();
+$check_conn = mysql_connect(get_host(), get_user(), get_pass()) 
+	or die ('Error connecting to mysql');
+mysql_select_db(get_db());
+
+$check_query = "select division_name, division_id, division_distance1 as dist
+	from divisions
+	where race_id = $id
+	order by division_name";
+
+$results = mysql_query($check_query);
+
+while ($current_heat = mysql_fetch_array($results,MYSQL_ASSOC)){
+	$c_name = $current_heat[division_name];
+	$c_id = $current_heat[division_id];
+	$c_distance = $current_heat[dist];
+	if ($c_distance != 0 && $c_distance != NULL && $c_distance != "") {
+		$heatnum++;
+		$heat_ids[] = $heatnum . "," . $c_id. ",division_distance1<br>";
+	}
+}
+$check_query = "select division_name, division_id, division_distance2 as dist
+	from divisions
+	where race_id = $id
+	order by division_name";
+$results = mysql_query($check_query);
+
+while ($current_heat = mysql_fetch_array($results,MYSQL_ASSOC)){
+	$c_name = $current_heat[division_name];
+	$c_id = $current_heat[division_id];
+	$c_distance = $current_heat[dist];
+	if ($c_distance != 0 && $c_distance != NULL && $c_distance != "") {
+		$heatnum++;
+		$heat_ids[] = $heatnum . "," . $c_id. ",division_distance2<br>";
+	}
+}
+
+$check_query = "select division_name, division_id, division_distance3 as dist
+	from divisions
+	where race_id = $id
+	order by division_name";
+$results = mysql_query($check_query);
+
+while ($current_heat = mysql_fetch_array($results,MYSQL_ASSOC)){
+	$c_name = $current_heat[division_name];
+	$c_id = $current_heat[division_id];
+	$c_distance = $current_heat[dist];
+	if ($c_distance != 0 && $c_distance != NULL && $c_distance != "") {
+		$heatnum++;
+		$heat_ids[] = $heatnum . "," . $c_id. ",division_distance3<br>";
+	}
+}
+
+$check_query = "select division_name, division_id, division_distance4 as dist
+	from divisions
+	where race_id = $id
+	order by division_name";
+$results = mysql_query($check_query);
+
+while ($current_heat = mysql_fetch_array($results,MYSQL_ASSOC)){
+	$c_name = $current_heat[division_name];
+	$c_id = $current_heat[division_id];
+	$c_distance = $current_heat[dist];
+	if ($c_distance != 0 && $c_distance != NULL && $c_distance != "") {
+		$heatnum++;
+		$heat_ids[] = $heatnum . "," . $c_id. ",division_distance4<br>";
+	}
+}
+
+$check_query = "select division_name, division_id, division_distance5 as dist
+	from divisions
+	where race_id = $id
+	order by division_name";
+$results = mysql_query($check_query);
+
+while ($current_heat = mysql_fetch_array($results,MYSQL_ASSOC)){
+	$c_name = $current_heat[division_name];
+	$c_id = $current_heat[division_id];
+	$c_distance = $current_heat[dist];
+	if ($c_distance != 0 && $c_distance != NULL && $c_distance != "") {
+		$heatnum++;
+		$heat_ids[] = $heatnum . "," . $c_id. ",division_distance5<br>";
+	}
+}
+
+$check_query = "select division_name, division_id, division_distance6 as dist
+	from divisions
+	where race_id = $id
+	order by division_name";
+$results = mysql_query($check_query);
+
+while ($current_heat = mysql_fetch_array($results,MYSQL_ASSOC)){
+	$c_name = $current_heat[division_name];
+	$c_id = $current_heat[division_id];
+	$c_distance = $current_heat[dist];
+	if ($c_distance != 0 && $c_distance != NULL && $c_distance != "") {
+		$heatnum++;
+		$heat_ids[] = $heatnum . "," . $c_id. ",division_distance6<br>";
+	}
+}
+
+mysql_close($check_conn);
+
+
+echo "<ol id=\"toc\">";
+foreach ($heat_ids as $id){
+	$current = split( ",", $id, 4);
+	echo "<li><a href=\"#heat" . $current[0] . "\">H" .
+           $current[0] . "</a></li>";
+}
+echo "</ol>";
+
+?>
+
+foreach ($heat_ids as $id){
+$current = split( ",", $id, 4);
+	echo "div class=\"content\" id=\"heat" .
+           $current[0] . "\">";
+	    echo "heatnum: " . $heatnum;
+	echo "</div>";
+}
+
+$keys = array_keys($_POST);
+foreach ($keys as $vars) {
+	echo "$vars = $_POST[$vars]<br>";
+}
+
+get_heat_count($_POST[RACE_ID]);
+
+</body>
+</html>

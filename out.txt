@@ -1,0 +1,65 @@
+Tables_in_networki_ncsa
+associations
+division_skaters
+divisions
+races
+raw_results
+skater_history
+skaters
+Field	Type	Null	Key	Default	Extra
+association_id	int(11)		PRI	NULL	auto_increment
+association_name	varchar(50)	YES		NULL	
+association_url	varchar(50)	YES		NULL	
+Field	Type	Null	Key	Default	Extra
+division_skaters_id	int(11)		PRI	NULL	auto_increment
+division_id	int(11)	YES		NULL	
+race_id	int(11)	YES		NULL	
+skater_id	int(11)	YES		NULL	
+Field	Type	Null	Key	Default	Extra
+division_id	int(11)		PRI	NULL	auto_increment
+division_name	varchar(50)	YES		NULL	
+division_start_order	int(11)	YES		NULL	
+division_distance1	int(11)	YES		NULL	
+division_distance2	int(11)	YES		NULL	
+division_distance3	int(11)	YES		NULL	
+division_distance4	int(11)	YES		NULL	
+division_distance5	int(11)	YES		NULL	
+division_distance6	int(11)	YES		NULL	
+race_id	int(11)	YES		NULL	
+Field	Type	Null	Key	Default	Extra
+race_id	int(11)		PRI	NULL	auto_increment
+race_name	varchar(50)	YES		NULL	
+race_location	varchar(50)	YES		NULL	
+race_date	date	YES		NULL	
+race_time	time	YES		NULL	
+race_enable	int(11)	YES		NULL	
+Field	Type	Null	Key	Default	Extra
+raw_id	int(11)		PRI	NULL	auto_increment
+division_id	int(11)	YES		NULL	
+skater_id	int(11)	YES		NULL	
+heatnum	int(11)	YES		NULL	
+min	char(3)	YES		NULL	
+sec	char(2)	YES		NULL	
+hun	char(2)	YES		NULL	
+pos	varchar(10)	YES		NULL	
+point	char(2)	YES		NULL	
+notes	varchar(100)	YES		NULL	
+place	varchar(10)	YES		NULL	
+total_points	int(11)	YES		NULL	
+Field	Type	Null	Key	Default	Extra
+skater_history_id	int(11)		PRI	NULL	auto_increment
+race_id	int(11)	YES		NULL	
+skater_id	int(11)	YES		NULL	
+heatnum	int(11)	YES		NULL	
+distance	int(11)	YES		NULL	
+min	char(3)	YES		NULL	
+sec	char(2)	YES		NULL	
+hun	char(2)	YES		NULL	
+place	varchar(10)	YES		NULL	
+Field	Type	Null	Key	Default	Extra
+skater_id	int(11)		PRI	NULL	auto_increment
+skater_first	varchar(32)	YES		NULL	
+skater_last	varchar(32)	YES		NULL	
+skater_dob	date	YES		NULL	
+skater_email	varchar(100)	YES		NULL	
+skater_sex	char(1)	YES		NULL	

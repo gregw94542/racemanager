@@ -1,0 +1,658 @@
+
+body { 
+	#background-color: gray;
+	font-family: "Lucida Grande", Verdana, san-serif;
+	font-size: small;
+	text-align: center;
+}
+
+PRE {
+white-space: pre-wrap;       /* css-3 */
+white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+white-space: -pre-wrap;      /* Opera 4-6 */
+white-space: -o-pre-wrap;    /* Opera 7 */
+word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+
+P.breakhere {
+	page-break-before:always;
+}
+
+
+div.leftalign {
+	background-color: light-blue;
+	text-align: left;
+	border:     solid;
+}
+
+div.rightalign {
+	background-color: red;
+	text-align: right;
+	border:     solid;
+	max-width:  400px;
+	min-width:  400px;
+	position:   absolute;
+	top:	    0;
+	left:       8000;
+}
+
+div.container {
+	position:	relative;
+	width:		850px;
+	height:		1000px;
+}
+
+
+div.jobdescriptions{
+	position:	relative;
+	border-style:	solid;
+	border-color:	black;
+	border-width:	thin;
+	font-size:	13px;
+}
+
+div.top {
+	font-size: 	larger;
+	position: 	absolute;
+	float:		left;
+	height:		100px;
+	width:		952px;
+	background-color: #f0f0f0;
+	border-style:	solid;
+	border-color:	#f8f8f8;
+	border-width:	1px;
+}
+
+div.top_login {
+	font-size: 	larger;
+	position: 	absolute;
+	float:		left;
+	height:		100px;
+	width:		502px;
+	background-color: #f0f0f0;
+	border-style:	solid;
+	border-color:	#f8f8f8;
+	border-width:	1px;
+}
+
+div.task {
+	background-color: #f0f0f0;	
+	border-style:	solid;
+	border-color:	blue;
+	border-width:	1px;
+}
+
+div.side {
+	background-color: #f0f0f0;	
+	position:	absolute;
+	width:		150px;
+	height:		505px;
+	top:		99px;
+	left:		0px;
+	border-style:	solid;
+	border-color:	#f8f8f8;
+	border-width:	1px;
+}
+div.print_top_left {
+	#background-color: #f0f0ff;	
+	position:	relative;
+	width:		150px;
+	height:		100px;
+	top:		20px;
+	left:		0px;
+	#border-style:	solid;
+	#border-color:	#f8f8f8;
+	#border-width:	1px;
+}
+div.print_top_right {
+	#background-color: #f0f0f0;	
+	position:	absolute;;
+	width:		400px;
+	height:		100px;
+	top:		30px;
+	left:		275px;
+	#border-style:	solid;
+	#border-color:	#f8f8f8;
+	#border-width:	1px;
+}
+div.side_noheight {
+	background-color: #f0f0f0;	
+	position:	absolute;
+	width:		150px;
+	#height:		475px;
+	top:		101px;
+	left:		0px;
+	border-style:	solid;
+	border-color:	#f8f8f8;
+	border-width:	1px;
+}
+
+div.side_login {
+	background-color: #f0f0f0;	
+	position:	absolute;
+	width:		150px;
+	height:		86px;
+	top:		97px;
+	left:		0px;
+	border-style:	solid;
+	border-color:	#f0f0f0;
+	border-width:	1px;
+}
+
+div.body {	
+	#background-color: red;
+	position:	absolute;
+	width:		800px;
+	height:		475px;
+	top:		113px;
+	left:		160px;
+	#border-style:	solid;
+ 	#border-color:	blue;
+	#border-width:	1px;
+	padding: 	10px; 
+	margin: 	10px;
+}	
+
+div.body_login {	
+	#background-color: red;
+	position:	absolute;
+	width:		350px;
+	height:		100;
+	top:		101px;
+	left:		152px;
+	border-style:	solid;
+	border-color:	blue;
+	border-width:	1px;
+}	
+
+
+div.body_noheight {	
+	#background-color: red;
+	position:	absolute;
+	width:		800px;
+	height:		475px;
+	top:		101px;
+	left:		152px;
+	#border-style:	solid;
+	#hborder-color:	blue;
+	#border-width:	1px;
+}	
+div.body_diagnostics {	
+	#background-color: red;
+	position:	absolute;
+	width:		800px;
+	height:		475px;
+	top:		101px;
+	left:		152px;
+	text-align: 	left;
+	font-size:	ex-small;
+	#border-style:	solid;
+	#hborder-color:	blue;
+	#border-width:	1px;
+}	
+
+div.body_print {	
+	#background-color: red;
+	position:	absolute;
+	width:		800px;
+#	height:		475px;
+#	top:		101px;
+#	left:		152px;
+#	border-style:	solid;
+#	border-color:	blue;
+#	border-width:	1px;
+}	
+
+div.checkbox {
+	font-size: 	ex-sm;
+}
+
+li.sidemenu { 
+	text-align:left; 
+	font-size:10pt;
+}
+	
+
+blue {
+	width:	100px;
+	height:	100px;
+	position: absolute;
+	top:	0;
+	left:	0;
+	background-color:	blue;
+}
+
+tr.light {
+	background-color: 	#ffffff
+}
+tr.dark {
+	background-color: 	#f0f0f0;
+}
+
+data_entry {
+	font-size: large;
+}
+
+td {
+	#background-color:	#ffffff;
+}
+
+td.left {
+	text-align:		left;
+}
+
+td.left_bold {
+	text-align:		left;
+	font-size:		large;
+}
+
+td.left_smbold {
+	text-align:		left;
+	font-weight:		bold;
+	vertical-align:		text-top;
+	padding:		2px;
+	spacing:		2px;
+	cellpadding:		0;
+	cellspacing:		0;
+	#font-size:		large;
+}
+td.left_sm {
+	text-align:		left;
+	font-size:		12px;
+	font-style:		italic;
+	font-weight:		bold;
+	vertical-align:		text-top;
+	padding:		0px;
+	spacing:		0px;
+	cellpadding:		0;
+	cellspacing:		0;
+}
+
+td.left_sm_sql {
+	text-align:		left;
+	font-size:		12px;
+	font-style:		italic;
+	font-weight:		bold;
+	vertical-align:		text-top;
+	padding-left:		5px;
+	padding-right:		0px;
+	padding-top:		0px;
+	padding-bottom:		1px;
+}
+
+td.left_exsm {
+	text-align:		left;
+	font-size:		10px;
+	font-style:		italic;
+	vertical-align:		text-top;
+	padding:		2px;
+	spacing:		2px;
+	cellpadding:		0px;
+	cellspacing:		0px;
+}
+
+td.schedule_left_exsm {
+	text-align:		left;
+	font-size:		10px;
+	font-style:		italic;
+	vertical-align:		text-top;
+}
+
+td.left_sql {
+	text-align:		left;
+	font-size:		12px;
+	font-style:		italic;
+	vertical-align:		text-top;
+	padding:		0px;
+}
+
+
+td.heading{
+	text-align:		left;
+	font-size:		14px;
+	font-weight:		bold;
+	#font-style:		italic;
+	vertical-align:		text-top;
+}
+td.heading_italic{
+	text-align:		left;
+	font-size:		small;
+	font-weight:		bold;
+	font-style:		italic;
+	vertical-align:		text-top;
+}
+
+td.tableentry {
+	font-size: 		9px;
+	text-align:		center;
+}
+td.tableentry_header {
+	font-size: 		11px;
+	font-weight:		bold;
+	text-align:		right;
+}
+
+td.tableentry_header_right {
+	font-size: 		11px;
+	font-weight:		bold;
+	text-align:		right;
+}
+
+td.right_sm {
+	text-align:		center;
+	font-size:		12px;
+	font-weight:		bold;
+	font-style:		italic;
+	vertical-align:		text-top;
+	padding:		0px;
+	spacing:		0px;
+	cellpadding:		0px;
+	cellspacing:		0px;
+}
+
+td.right_smbold {
+	text-align:		center;
+	font-size:		smaller;
+	font-style:		italic;
+	font-weight:		bold;
+	vertical-align:		text-top;
+}
+
+td.center_sm {
+	text-align:		center;
+	font-size:		smaller;
+	font-style:		italic;
+	vertical-align:		text-top;
+}
+
+
+td.title {
+	#background-color:	gray;
+}
+
+td.input {
+	text-align:		left;
+	#background-color:	red;
+}
+
+p.summary {
+	text-align: 		left;
+	font-size:		100%;
+	font-weight:		bold;
+}
+
+a.link {
+	color:			blue;
+	font-size: 		large;
+}
+a.visited {
+	color:			red;
+	font-size: 		large;
+}
+a.hover {
+	color:			black;
+	font-size: 		large;
+}
+
+textarea#styled {
+	width: 400px;
+	height: 120px;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
+	font-size: smaller;
+}
+
+div.membercard {
+	position:	absolute;
+	left:		15px;	
+	top:		45px;
+	width:		10.8cm;
+	height:		6.3cm;
+	border-style:	solid;
+	border-color:	black;
+}
+
+div.membercardexpires {
+	position:	absolute;
+	left:		.6cm;
+	top:		5.50cm;
+	font-size:	12px;
+	font-weight:	bold;
+}
+
+div.membercardurl {
+	position:	absolute;
+	left:		.6cm;
+	top:		5.90cm;
+	font-size:	12px;
+	font-weight:	bold;
+}
+
+div.membercardsince {
+	position:	absolute;
+	left:		.6cm;
+	top:		5.10cm;
+	font-size:	12px;
+	font-weight:	bold;
+}
+
+div.membercardbirthday {
+	position:	absolute;
+	left:		6.45cm;
+	top:		5.60cm;
+
+	font-size:	12px;
+	font-weight:	bold;
+}
+
+div.membercardnumber {
+	position:	absolute;
+	left:		6.45cm;
+	top:		5.20cm;
+	font-size:	12px;
+	font-weight:	bold;
+}
+	
+div.membercardtitle {
+	position:	absolute;
+	left:		-.5cm;
+	top:		2.85cm;
+	font-size:	16px;
+	font-weight:	bold;
+	width:		12cm;
+	height:		.75cm;
+	text-align: 	center;
+}
+
+div.membercardtitle1 {
+	position:	absolute;
+	left:		0.05cm;
+	top:		4.30cm;
+	font-size:	16px;
+	font-weight:	bold;
+	width:		12cm;
+	height:		.75cm;
+	text-align: 	center;
+}
+
+div.membercardname {
+	position:	absolute;
+	left:		0.25cm;
+	top:		3.70cm;
+	#top:		3.95cm;
+	#font-size:	18px;
+	font-size:	16px;
+	font-weight:	bold;
+	text-align: 	center;
+	width:		12cm;
+	height:		.5cm;
+}
+
+div.membercarduss {
+	position:	absolute;
+	left:		.65cm;
+	top:		.65cm;
+	width:		3cm;
+	height:		1.5cm;
+}
+div.membercardlogo {
+	position:	absolute;
+	left:		7.6cm;
+	top:		.25cm;
+	width:		3.5cm;
+	height:		2.0cm;
+}
+
+
+div.certificate {
+	position:	relative;
+	left:		2cm;	
+	width:		20cm;
+	height:		14cm;
+	border-style:	none;
+	border-color:	green;
+	border-width:	1px;
+}
+
+div.certificate_title {
+	position:	relative;
+	left:		3cm;
+	top:		2cm;
+	width:		15cm;
+	height:		2.0cm;
+	font-family: "Lucida Grande", Verdana, san-serif;
+	font-size:	20px;
+	font-weight:	bold;
+	text-align: 	center;
+	border-style:	none;
+	border-color:	green;
+	border-width:	1px;
+}
+div.certificate_name {
+	position:	relative;
+	left:		3cm;
+	top:		2.5cm;
+	width:		15cm;
+	height:		2.0cm;
+	font-family: "Lucida Grande", Verdana, san-serif;
+	font-size:	28px;;
+	font-weight:	bold;
+	font-style:	oblique;
+	text-align: 	center;
+	border-style:	none;
+	border-color:	green;
+	border-width:	1px;
+}
+div.certificate_distance_title {
+	position:	relative;
+	left:		3cm;
+	top:		2cm;
+	width:		15cm;
+	height:		1.0cm;
+	font-family: "Lucida Grande", Verdana, san-serif;
+	font-size:	20px;
+	font-weight:	bold;
+	text-align: 	center;
+	border-style:	none;
+	border-color:	green;
+	border-width:	1px;
+}
+
+div.certificate_location {
+	position:	relative;
+	left:		3cm;
+	top:		2.2cm;
+	width:		15cm;
+	height:		1.0cm;
+	font-family: "Lucida Grande", Verdana, san-serif;
+	font-size:	20px;
+	font-weight:	bold;
+	text-align: 	center;
+	border-style:	none;
+	border-color:	green;
+	border-width:	1px;
+}
+
+div.certificate_distance {
+	position:	relative;
+	left:		3cm;
+	top:		3cm;
+	width:		15cm;
+	height:		1cm;
+	font-family: "Lucida Grande", Verdana, san-serif;
+	font-size:	24px;;
+	font-weight:	bold;
+	text-align: 	center;
+	border-style:	none;
+	border-color:	green;
+	border-width:	1px;
+}
+
+div.certificate_ncsa_logo {
+	position:	absolute;
+	left:		2cm;
+	top:		11.5cm;
+	width:		3.5cm;
+	height:		2.0cm;
+	border-style:	none;
+	border-color:	green;
+	border-width:	1px;
+}
+
+div.certificate_uss_logo {
+	position:	absolute;
+	left:		15cm;
+	top:		11cm;
+	width:		3.5cm;
+	height:		2.2cm;
+	border-style:	none;
+	border-color:	green;
+	border-width:	1px;
+}
+
+div.certificate_authentication {
+	position:	absolute;
+	left:		7.0cm;
+	top:		13cm;
+	width:		6.0cm;
+	height:		1.0cm;
+	border-style:	none;
+	border-color:	green;
+	border-width:	1px;
+	font-family: "Lucida Grande", Verdana, san-serif;
+	font-size:	8px;
+	font-weight:	normal;
+}
+
+p {
+	font-size:	26px;
+	text-align:	left;
+}
+
+p.mail {
+	font-size:	14px;
+	text-align:	left;
+}
+
+textarea.email {
+	font: bold 1em Arial,sans-serif;
+	color: black;
+	display:block;
+	padding-bottom: 5px;
+	font-size: 10px;
+}
+
+td.timing {
+	font: bold 1em Arial,sans-serif;
+	color: black;
+	font-size: 22px;
+ }
+
+td.place {
+	font: bold 1em Arial,sans-serif;
+	color: black;
+	font-size: 12px;
+ }
+
+

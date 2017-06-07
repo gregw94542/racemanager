@@ -1,0 +1,148 @@
+
+body {
+    font: 16px sans-serif;
+}
+
+p {
+    color: black;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px;
+}
+p.tmpFrameworkLoaded {
+    color: green;
+    border: 1px solid green;
+}
+
+p.hintbox {
+	color: 		red;
+	font-size: 	12px;
+	border:		none;
+}
+
+p.alignleft {
+	float:		left;
+	font-size:	14px;
+	padding-left:	10px;
+}
+
+
+div.rightalign {
+	background-color: red;
+	text-align: right;
+	border:     solid;
+	max-width:  400px;
+	min-width:  400px;
+	position:   absolute;
+	top:	    0;
+	left:       8000px;
+}
+
+div.container {
+	position:	relative;
+	width:		850px
+}
+
+div.top {
+	font-size: 	larger;
+	position: 	absolute;
+	float:		left;
+	height:		100px;
+	/* background-color: #f0f0f0; */
+	border-style:	solid;
+	border-color:	#f8f8f8;
+	border-width:	1px;
+}
+
+div.body {	
+	position:	absolute;
+	width:		800px;
+	height:		475px;
+	top:		120px;
+	left:		1px;
+	border-style:	solid;
+ 	border-color:	blue;
+	border-width:	1px;
+	padding: 	10px; 
+	margin: 	10px;
+}	
+
+div.col1 {
+	position: 	Absolute;
+	left:	 	0px;
+	top:		0px;
+	border:		1px solid blue;
+	width:		266px;
+	height:		400px;
+	padding: 	1px;
+}
+
+div.col2 {
+	position: 	Absolute;
+	left:	 	268px;
+	top:		0px;
+	border:		1px solid blue;
+	width:		266px;
+	height:		400px;
+	padding: 	1px;
+}
+
+div.col3 {
+	position: 	Absolute;
+	left:	 	536px;
+	top:		0px;
+	border:		1px solid blue;
+	width:		266px;
+	height:		400px;
+
+}
+
+div.hintdiv {
+	position: 	relative;
+	left:	 	0px;
+	top:		400px;
+	border:		none;
+	width:		300px;
+	height:		10px;
+	font-style: 	oblique;
+	font-size:	16px;
+	background-color: green;
+
+}
+
+
+
+
+
+a.link {
+	color:		red;
+}
+a.visited {
+	color:		green;
+}
+
+a.active {
+	color:		blue;
+}
+
+td.link {
+	text-align:		left;
+	text-align: 	left;
+	padding:	1px;
+}
+
+td.hintbox {
+	color: 		black;
+	font-size: 	12px;
+	border:		none;
+}
+
+input.min {
+	color:	black;
+}
+input.sec {
+	color:	black;
+}
+input.hun {
+	color:	black;
+}

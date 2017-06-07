@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Sync Member Renewal with USS</title>
+<script type='text/javascript' src='jquery-1.4.2.js'></script>
+<script type='text/javascript' src='ViewMember.js'></script>
+</head>
+<?php
+include "utility.php"
+?>
+<?php
+	$vars = new VARS();
+	$database = new DB();
+	$vars->insert_css_file();
+	write_head_tag($vars);
+	write_body_tag( $vars, $database);
+?>
+<div class="container">
+
+<div class="top">
+<h2>Sync Member Renewal Dates with USS</h2>
+</div>  <!--top div -->
+
+<div class="side">
+<?php
+include "sidemenu.php"
+?>
+</div> <!--- class="side"> -->
+
+<div class="body">
+<?php
+
+	$query = "select year(now()) as yr, 
+			month(now()) as mn,
+			day(now()) as dy
+		from dual";
+
+	$database->runsql($query, 
+		#1);
+		$vars->get_debug());
+	$row = $database->getrow();
+
+	$renewalwindow = $row[yr]-1 . "-" . $row[mn] . "-" . $row[dy];
+	$renewalwindow = "2011-07-01";
+
+	$query = "select skater_first, skater_last, 
+	year(skater_renewaldate) as year,
+	month(skater_renewaldate) as month,
+	day(skater_renewaldate) as day,
+
+	year(skater_dob) as byear,
+	month(skater_dob) as bmonth,
+	day(skater_dob) as bday,
+	skater_id
+
+	from skaters
+	where association_id = 1
+	and skater_renewaldate > date(\"$renewalwindow\")
+	order by skater_renewaldate, skater_first";
+	
+
+	$database->runsql($query, 
+		1);
+		#$vars->get_debug());
+
+	$count = 1;
+	echo "<table>";
+	echo "<tr><td></td><td class=\"left\"><b>Name</b></td>";
+	echo "<td></td><td class=\"left\"><b>Birthdate</b></td><td class=\"left\"><b>Renewal</b></td></tr>";
+	echo "<tr><td colspan=5><hr></td></tr>";
+	while ($row = $database->getrow()){
+		echo "<tr>";
+		echo "<td class=\"left\" width=\"20px\">$count</td>"; 
+		echo "<td class=\"left\" width=\"100px\">$row[skater_first]</td>"; 
+		echo "<td class=\"left\" width=\"120px\">$row[skater_last]</td>"; 
+		printf ("<td class=\"left\" width=\"90px\">%02d/%02d/%d</td>",$row[bmonth],$row[bday],$row[byear]);
+		printf ("<td class=\"left\" width=\"90px\">%02d/%02d/%d</td>",$row[month],$row[day],$row[year]);
+		echo "</tr>";
+
+		### insert code for updating skaters table
+		$sql = "update skaters set skater_renewaldate = date('2012-07-01')
+			 where skater_id = $row[skater_id]";
+		$database->runsql($sql, 
+		#1);
+		$vars->get_debug());
+		echo "<tr>";
+		echo "<td colspan=6 class=\"left_sm_sql\">$sql</td>";
+		echo "</tr>";
+		### insert code for updating renewal_dates table
+		$adminip = $vars->get_remote_addr();
+		$sql  = "insert into renewal_dates
+			(skater_id, renewal_date, renewal_entered_date, admin_id, 
+			renewal_amount, renewal_id_addr) values
+			( $row[skater_id],
+			  date('2012-07-01'),
+			  now(),
+			  1, 0, \"$adminip\")";
+		$database->runsql($sql, 
+		#1);
+		$vars->get_debug());
+
+		echo "<tr>";
+		echo "<td colspan=6 class=\"left_sm_sql\">$sql</td>";
+		echo "</tr>";
+		$count++;
+	}
+?>
+
+
+</div> <!--Body Div -->
+</div>  <!--Container Div-->
+</body>
+</html>
+
+

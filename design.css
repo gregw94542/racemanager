@@ -1,0 +1,54 @@
+ol#toc {
+	Height: 2em; 
+  	list-style: none; 
+	margin: 0;
+	padding: 0;
+}
+
+
+
+ol#toc li {
+	background: #bdf url(basic_tab.png);
+	float: left; 
+	margin: 0 1px 0 0;
+	padding-left: 1px;
+}
+
+
+
+ol#toc a {
+	background: url(basic_tab.png) 100% 0;
+	color: #008;
+	display: block;
+	float: left; 
+	line-height: 2em;
+	outline: none;
+	padding-right: 1px;
+	padding-left: 1px;
+	text-decoration: underline;
+}
+
+
+
+
+ol#toc li.current {
+	background-color: #480;
+	background-position: 0 -60px;
+}
+
+
+
+
+ol#toc li.current a {
+	background-position: 100% -60px;
+	color: #ff0;
+	font-weight: bold;
+}
+
+
+
+div.content {
+	border: #48f solid 2px; 
+	clear: left;
+	padding: 1em;
+}
