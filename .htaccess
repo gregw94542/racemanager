@@ -1,0 +1,5 @@
+AuthUserFile /home/networki/public_html/dev/ncsa/.htpasswd
+AuthName "Protected Area: "
+AuthType Basic
+Require valid-user
+AddHandler application/x-httpd-php55 .php
