@@ -123,7 +123,7 @@ if ($_GET[RACE_ID] != NULL){
 ?>
 <div>
 <ol id="toc">
-	<li><a href=#Maintenance> Race Maintenance ! </a></li>
+	<li><a href=#Maintenance> Race Maintenance </a></li>
 	<li><a href=#Create> Create Race </a></li>
 	<li><a href=#Skater> Skater </a></li>
 	<li><a href=#Enable> Enable/Disable </a></li>
