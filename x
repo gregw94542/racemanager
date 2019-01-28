@@ -1,4 +1,4 @@
-show tables;
+show tables; 
 desc races;
 desc divisions;
 select * from races;
