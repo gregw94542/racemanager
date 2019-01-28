@@ -1,10 +1,5 @@
 <html>
 <link rel="stylesheet" href="ncsa.css" type="text/css">
-<head>
-<meta charset="UTF-8">
-<meta name="google" content="notranslate">
-<meta http-equiv="Content-Language" content="en">
-</head>
 <title> NCSA Race Manager - Open Race</title>
 <body>
 <? include ("ncsadb.php")?>

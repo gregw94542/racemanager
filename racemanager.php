@@ -10,7 +10,7 @@
 <title> NCSA Race Manager</title>
 <body>
 
-<h1> NCSA Race Manager</h1>
+<h1> NCSA Race Manager </h1>
 
 <script language=javascript>
 function Openrace( )
@@ -123,7 +123,7 @@ if ($_GET[RACE_ID] != NULL){
 ?>
 <div>
 <ol id="toc">
-	<li><a href=#Maintenance> Race Maintenance </a></li>
+	<li><a href=#Maintenance> Race Maintenance ! </a></li>
 	<li><a href=#Create> Create Race </a></li>
 	<li><a href=#Skater> Skater </a></li>
 	<li><a href=#Enable> Enable/Disable </a></li>

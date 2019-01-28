@@ -211,18 +211,18 @@ function calc_age_group( $BMONTH, $BYEAR, $RMONTH,$RYEAR)
 	} elseif ($NATIONALS_AGE >= 7 && $NATIONALS_AGE <= 8){
 		$NATIONAL_CLASS = "PW";
 	} elseif ($NATIONALS_AGE >= 9 && $NATIONALS_AGE <= 10){
-		$NATIONAL_CLASS = "Pny";
+		$NATIONAL_CLASS = "Jr-E";
 	} elseif ($NATIONALS_AGE >= 11 && $NATIONALS_AGE <= 12){
-		$NATIONAL_CLASS = "Mgt";
+		$NATIONAL_CLASS = "Jr-D";
 	} elseif ($NATIONALS_AGE >= 13 && $NATIONALS_AGE <= 14){
 		$NATIONAL_CLASS = "Juv";
-		$NATIONAL_CLASS = "Jr C";
+		$NATIONAL_CLASS = "Jr-C";
 	} elseif ($NATIONALS_AGE >= 15 && $NATIONALS_AGE <= 16){
 		$NATIONAL_CLASS = "Jr";
-		$NATIONAL_CLASS = "Jr B";
+		$NATIONAL_CLASS = "Jr-B";
 	} elseif ($NATIONALS_AGE >= 17 && $NATIONALS_AGE <= 18){
 		$NATIONAL_CLASS = "Int";
-		$NATIONAL_CLASS = "Jr A";
+		$NATIONAL_CLASS = "Jr-A";
 	} elseif ($NATIONALS_AGE >= 19 && $NATIONALS_AGE <= 29){
 		$NATIONAL_CLASS = "Sr";
 	} elseif ($NATIONALS_AGE >= 30 && $NATIONALS_AGE <= 39){
